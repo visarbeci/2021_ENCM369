@@ -1,4 +1,4 @@
 firstname,lastname,email,git_username,repository_name
 Visar,Beci,visar.beci@ucalgary.ca,visarbeci,2021_ENCM369
-Henry,Wu,henry.wu@ucalgary.ca,HenryWu-109,2021ENCM369
+Henry,Wu,henry.wu@ucalgary.ca,HenryWu-109,2021_ENCM369
 Russell,Tom,russell.tom@ucalgary.ca,russelltom,ENCM369
