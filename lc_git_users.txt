@@ -5,3 +5,4 @@ Russell,Tom,russell.tom@ucalgary.ca,russelltom,ENCM369
 ranai,gosine,ranai.gosine@ucalgary.ca,RanaiGosine,2021_ENCM369
 Mark,Biederstadt,mark.biederstadt@ucalgary.ca,BiederstadtMark,2021_ENCM369
 Anmol Singh, Sandhu, anmolsingh.sandhu@ucalgary.ca, anmolsandhu520, 2021_ENCM369
+Mikhail,Nathoo,mikhail.nathoo@ucalgary.ca,mikhailnathoo,2021_ENCM369
