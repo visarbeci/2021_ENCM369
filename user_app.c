@@ -86,16 +86,27 @@ void UserAppInitialize(void)
 @brief Application code that runs once per system loop
 
 Requires:
-- 
+ - None
 
 Promises:
-- 
+ - A switch between ON and OFF of the LATCHES on PORTA registers
 
 */
 void UserAppRun(void)
 {
+    while(LATA < 0xC0)              
+    {
+        
+        for(u32 u32Counter=400000; u32Counter>0 ; u32Counter--)
+        {
+            
+        }
+        
+        LATA++;
 
-
+    }
+    LATA = 0x80;
+        
 } /* end UserAppRun */
 
 
