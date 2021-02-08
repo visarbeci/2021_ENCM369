@@ -88,6 +88,10 @@ Promises:
 */
 void GpioSetup(void)
 {
+   
+    TRISA = 0x00;           //Sets the pin (from the latch)as a digital output
+    ANSELA=0x00;            //Sets the port as Digital I/O
+    LATA = 0x80;           //Writes a 0 in all the ports except A7(value of 1) 
   
   
 } /* end GpioSetup() */
