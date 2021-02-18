@@ -44,7 +44,7 @@ extern volatile u32 G_u32SystemFlags;                     /*!< @brief From main.
 Global variable definitions with scope limited to this local application.
 Variable names shall start with "UserApp_<type>" and be declared as static.
 ***********************************************************************************************************************/
-
+static u32 UserApp_u32Counter=0;                          //counter to keep track of the button presses
 
 /**********************************************************************************************************************
 Function Definitions
@@ -94,20 +94,21 @@ Promises:
 */
 void UserAppRun(void)
 {
-    while(LATA < 0xC0)              
+    if(0x30==(PORTB & 0x30) && LATA<0xC0 )
     {
-        
-        for(u32 u32Counter=400000; u32Counter>0 ; u32Counter--)
+        UserApp_u32Counter++;
+                for(u32 u32Counter=600000; u32Counter>0 ; u32Counter--)
         {
             
         }
-        
         LATA++;
-
     }
+    else if(LATA==0xC0)
+    {
     LATA = 0x80;
         
 } /* end UserAppRun */
+}
 
 
 
