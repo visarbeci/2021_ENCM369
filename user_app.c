@@ -32,7 +32,7 @@ All Global variable names shall start with "G_<type>UserApp1"
 /* New variables */
 volatile u8 G_u8UserAppFlags;                             /*!< @brief Global state flags */
 static u8 G_u8Counter=0x00;
-u8 au8Pattern[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20};
+u8 au8ValuesArray[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20};
 void TimeXus(u16 t);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -108,7 +108,7 @@ void UserAppRun(void)
 {
             if(PIR3bits.TMR0IF==1)
             {
-            LATA = au8Pattern[G_u8Counter];
+            LATA = au8ValuesArray[G_u8Counter];
             G_u8Counter++;
             }
             if (G_u8Counter == 0x06)
