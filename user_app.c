@@ -112,7 +112,7 @@ void UserAppRun(void)
             G_u8Counter++;
             }
             if (G_u8Counter == 0x06)
-                G_u8Counter = 0x00;
+                G_u8Counter &= 0x00;
         
 } /* end UserAppRun */
 
