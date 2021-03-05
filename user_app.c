@@ -96,7 +96,8 @@ Promises:
  - A switch between ON and OFF of the LATCHES on PORTA registers
 
 */
-void TimeXus(u16 t){
+void TimeXus(u16 t)
+{
     
     T0CON0 &= 0x7F;
     TMR0L = 0xFF & (0x00FF-t);
@@ -108,8 +109,8 @@ void UserAppRun(void)
 {
             if(PIR3bits.TMR0IF==1)
             {
-            LATA = au8ValuesArray[G_u8Counter];
-            G_u8Counter++;
+                LATA = au8ValuesArray[G_u8Counter];
+                G_u8Counter++;
             }
             if (G_u8Counter == 0x06)
                 G_u8Counter &= 0x00;
