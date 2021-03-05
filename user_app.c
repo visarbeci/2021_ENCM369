@@ -31,7 +31,9 @@ All Global variable names shall start with "G_<type>UserApp1"
 ***********************************************************************************************************************/
 /* New variables */
 volatile u8 G_u8UserAppFlags;                             /*!< @brief Global state flags */
-
+static u8 G_u8Counter=0x00;
+u8 au8ValuesArray[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20};
+void TimeXus(u16 t);
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Existing variables (defined in other files -- should all contain the "extern" keyword) */
@@ -75,6 +77,8 @@ Promises:
 */
 void UserAppInitialize(void)
 {
+T0CON0 = 0x90;
+T0CON1 = 0x56;
 
 
 } /* end UserAppInitialize() */
@@ -92,23 +96,26 @@ Promises:
  - A switch between ON and OFF of the LATCHES on PORTA registers
 
 */
+void TimeXus(u16 t){
+    
+    T0CON0 &= 0x7F;
+    TMR0L = 0xFF & (0x00FF-t);
+    TMR0H = 0xFF00 & (0xFF00-t);
+    PIR3bits.TMR0IF=0;
+    T0CON0 |= 0x80;
+}
 void UserAppRun(void)
 {
-    if(0x30==(PORTB & 0x30) && LATA<0xC0 )
-    {
-        UserApp_u32Counter++;
-                for(u32 u32Counter=600000; u32Counter>0 ; u32Counter--)
-        {
-            
-        }
-        LATA++;
-    }
-    else if(LATA==0xC0)
-    {
-    LATA = 0x80;
+            if(PIR3bits.TMR0IF==1)
+            {
+            LATA = au8ValuesArray[G_u8Counter];
+            G_u8Counter++;
+            }
+            if (G_u8Counter == 0x06)
+                G_u8Counter &= 0x00;
         
 } /* end UserAppRun */
-}
+
 
 
 
