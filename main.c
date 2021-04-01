@@ -56,13 +56,16 @@ void main(void)
     /* Applications */
     UserAppRun();
    
-     
-    /* System sleep */
+   
+#if 1   /* System sleep */
     HEARTBEAT_OFF();
     SystemSleep();
-    TimeXus(0x0001);
-    while(PIR3bits.TMR0IF !=1)
+    TimeXus(2);
+    while( PIR3bits.TMR0IF == 0 );
+   
+   // while(PIR3bits.TMR0IF == 0)
     HEARTBEAT_ON();
+#endif
     
   } /* end while(1) main super loop */
   
